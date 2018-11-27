@@ -1,0 +1,144 @@
+/*
+  Top portion theming
+*/
+.title {
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  font-size: 100px;
+  padding-top: 10vh;
+}
+
+.background {
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  width: 100%;
+  height: 60%;
+}
+
+.bumps {
+  background-image: url("../images/bumps_white.png");
+  background-repeat: repeat-x;
+  transform: rotate(180deg);
+  background-position: bottom;
+  background-size: contain;
+  height: 40px;
+  width: 120%;
+}
+
+
+/*
+  General Themes
+*/
+
+body {
+    background-color: #414040 !important;
+    overflow-x: hidden;
+}
+
+.gray {
+  color: #cfcdcd !important;
+}
+
+a,h1,h2,h3,h4,h5,h6,p,b,label,i,td,tr {
+  color: white !important;
+}
+
+.content {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.center {
+  text-align: center;
+}
+
+.divider {
+  background-color: gray;
+  height: 2px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.dark {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.small-dark {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 2px;
+}
+
+/*
+  Content theme
+*/
+.key {
+  letter-spacing: 11px;
+  font-size: 70px;
+  text-align: center;
+}
+
+.lights {
+  background-image: url("../images/lights.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+  height: 60px;
+  width: 120%;
+}
+code {
+  color: white !important;
+}
+
+/*Code Theme*/
+code .aqua {
+  color: #4ec9b0 !important;
+}
+code .blue {
+  color: #569cd6 !important;
+}
+code .l-blue {
+  color: #9cdcfe !important;
+}
+code .yellow {
+  color: #dcdcaa !important;
+}
+code .green {
+  color: #6a9955 !important;
+}
+code .orange {
+  color: #ce9178 !important;
+}
+.example {
+  width: 100%;
+}
+
+/*
+  Mobile theming
+*/
+@media (max-width:960px) {
+  .bumps {
+    height: 20px;
+  }
+  .title {
+    width: auto;
+    height: auto;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    font-size: 50px;
+    padding-top: 10%;
+    color: black;
+  }
+  .key {
+    letter-spacing: 11px;
+    font-size: 40px;
+    text-align: center;
+  }
+  .example {
+    display: none;
+  }
+}

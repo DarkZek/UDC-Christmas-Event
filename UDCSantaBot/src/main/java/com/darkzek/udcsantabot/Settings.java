@@ -22,6 +22,7 @@ public class Settings {
     }
 
     /* Static 'instance' method */
+
     public static Settings getInstance( ) {
         return settings;
     }

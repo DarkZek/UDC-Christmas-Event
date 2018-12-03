@@ -1,10 +1,4 @@
 /*
-  I'm aware my use of !important is an issue of most importance, but I dont know how to override bootstrap without it
-*/
-
-
-
-/*
   Top portion theming
 */
 .title {
@@ -95,12 +89,6 @@ a,h1,h2,h3,h4,h5,h6,p,b,label,i,td,tr {
   height: 60px;
   width: 120%;
 }
-.material-icons {
-  font-size: 100px !important;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 30px;
-}
 code {
   color: white !important;
 }
@@ -154,7 +142,3 @@ code .orange {
     display: none;
   }
 }
-
-/*
-  key{santaclausiscomingtotown}
-*/

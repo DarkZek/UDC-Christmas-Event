@@ -11,7 +11,6 @@ public class PrivateMessageListener extends ListenerAdapter {
 
     private CodeTester tester = new CodeTester();
     public final String UDC_SERVER_ID = "514978958606073856";
-    public final long RANK_ID = 515244239672573983L;
     public final String HELP_MESSAGE = "UDC Santa is a bot to assist with the UDC Christmas Event found at https://christmas.unitydeveloperhub.com/\n" +
             "To enter code for stage 2 just reply to this message with three grave symbols (\\`\\`\\`) surrounding your code ```as such```";
 
@@ -31,7 +30,7 @@ public class PrivateMessageListener extends ListenerAdapter {
             length = 10;
         }
 
-        //Dont want them to have to guess random activator characters
+        //Don't want them to have to guess random activator characters
         if (message.substring(0, length).contains("help")) {
             showHelp(event.getPrivateChannel());
             return;
@@ -100,13 +99,6 @@ public class PrivateMessageListener extends ListenerAdapter {
         Guild guild = e.getJDA().getGuildById(UDC_SERVER_ID);
         e.getPrivateChannel().sendMessage("Congratulations and thank you for participating! Your rank has been added").queue();
 
-        Role role = guild.getRoleById(RANK_ID);
-
-        if (guild.getMember(e.getAuthor()).getRoles().contains(role)) {
-            e.getPrivateChannel().sendMessage("You have already claimed your present!").queue();
-            return;
-        }
-
-        guild.getController().addRolesToMember(guild.getMember(e.getAuthor()), role).queue();
+        //TODO: Send message to 2BDroid to give rank & karma
     }
 }

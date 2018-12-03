@@ -21,13 +21,13 @@ public class CodeRunner {
         Runtime rt = Runtime.getRuntime();
 
         try {
-            //Command to start docker container to run the code
+            //Command to start the docker container which runs the code
             List<String> lines = Arrays.asList("#!/bin/bash", "docker run --stop-timeout 10 --rm -v  /home/darkzek/" + projectDirectory + "/:/mnt sixeyed/coreclr-hello-world /bin/bash -c 'cd /mnt/ && dnx run " + number + "\'");
 
             //Script to run the code
             Path file = Paths.get("/home/darkzek/run.sh");
 
-            //Write the command into the script
+            //Write the command into the script (it wont work if we just execute the command directly)
             Files.write(file, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
 
             //Run the command

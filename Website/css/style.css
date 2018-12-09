@@ -34,7 +34,7 @@
 */
 
 body {
-    background-color: #414040 !important;
+    background-color: #414040;
     overflow-x: hidden;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 a,h1,h2,h3,h4,h5,h6,p,b,label,i,td,tr {
-  color: white !important;
+  color: white;
 }
 
 .content {
@@ -89,28 +89,34 @@ a,h1,h2,h3,h4,h5,h6,p,b,label,i,td,tr {
   height: 60px;
   width: 120%;
 }
-code {
-  color: white !important;
+.col-6 .material-icons {
+  font-size: 100px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+pre code {
+  color: white;
 }
 
 /*Code Theme*/
-code .aqua {
-  color: #4ec9b0 !important;
+.dark pre code .aqua {
+  color: #4ec9b0;
 }
-code .blue {
-  color: #569cd6 !important;
+.dark pre code .blue {
+  color: #569cd6;
 }
-code .l-blue {
-  color: #9cdcfe !important;
+.dark pre code .l-blue {
+  color: #9cdcfe;
 }
-code .yellow {
-  color: #dcdcaa !important;
+.dark pre code .yellow {
+  color: #dcdcaa;
 }
-code .green {
-  color: #6a9955 !important;
+.dark pre code .green {
+  color: #6a9955;
 }
-code .orange {
-  color: #ce9178 !important;
+.dark pre code .orange {
+  color: #ce9178;
 }
 .example {
   width: 100%;
@@ -142,3 +148,7 @@ code .orange {
     display: none;
   }
 }
+
+/*
+  key{santaclausiscomingtotown}
+*/

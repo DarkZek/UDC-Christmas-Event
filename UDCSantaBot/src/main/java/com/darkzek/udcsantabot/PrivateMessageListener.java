@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 public class PrivateMessageListener extends ListenerAdapter {
 
     private CodeTester tester = new CodeTester();
-    public final String UDC_SERVER_ID = "514978958606073856";
+    public final String UDC_SERVER_ID = "493510779866316801";
     public final String HELP_MESSAGE = "UDC Santa is a bot to assist with the UDC Christmas Event found at https://christmas.unitydeveloperhub.com/\n" +
             "To enter code for stage 2 just reply to this message with three grave symbols (\\`\\`\\`) surrounding your code ```as such```";
 
@@ -70,11 +70,16 @@ public class PrivateMessageListener extends ListenerAdapter {
                 //Get the result from the code
                 result += tester.TestCode(finalCode);
 
+                if (result.length() > 2000) {
+                    result = result.substring(0, 1996) + "...";
+                }
+
+
                 event.getPrivateChannel().sendMessage(result).queue();
             }).start();
         } catch (Exception e) {
             e.printStackTrace();
-            event.getPrivateChannel().sendMessage("An error has occurred running your code, please notify DarkZek").queue();
+            event.getPrivateChannel().sendMessage("An error has occurred running your code, please notify DarkZek#2276").queue();
         }
     }
 
@@ -82,23 +87,45 @@ public class PrivateMessageListener extends ListenerAdapter {
         //Remove grave symbols
         code = code.substring(3, code.length() - 3);
 
-        //Get the few beginning characters
-        String beginning = code.substring(0, 6).toLowerCase();
+        if (code.length() > 7) {
+            //Get the few beginning characters
+            String beginning = code.substring(0, 6).toLowerCase();
 
-        //Remove code tags
-        if (beginning.startsWith("cs")) {
-            code = code.substring(2);
-        } else if (beginning.startsWith("csharp")) {
-            code = code.substring(6);
+            //Remove code tags
+            if (beginning.startsWith("cs")) {
+                code = code.substring(2);
+            } else if (beginning.startsWith("csharp")) {
+                code = code.substring(6);
+            }
         }
 
         return code;
     }
 
     private void completedChallenge(MessageReceivedEvent e) {
-        Guild guild = e.getJDA().getGuildById(UDC_SERVER_ID);
-        e.getPrivateChannel().sendMessage("Congratulations and thank you for participating! Your rank has been added").queue();
 
         //TODO: Send message to 2BDroid to give rank & karma
+        final Guild UDC = e.getJDA().getGuildById(UDC_SERVER_ID);
+        final Role christmasRole = UDC.getRoleById(521454263969513482L);
+
+        if (UDC.getMember(e.getAuthor()).getRoles().contains(christmasRole)) {
+            e.getPrivateChannel().sendMessage("You already have completed this event!").queue();
+            return;
+        }
+
+        if (UDC.getMember(e.getAuthor()) == null) {
+            e.getPrivateChannel().sendMessage("You must be in the discord server `Unity Developer Hub` to claim your prize. Join here:  https://discord.gg/bu3bbby").queue();
+            return;
+        }
+
+        int peopleCompleted = UDC.getMembersWithRoles(christmasRole).size();
+
+        e.getPrivateChannel().sendMessage("Congratulations and thank you for participating! Your rank has been added.").queue();
+
+        UDC.getTextChannelById(493512044973260811L).sendMessage("!completedchristmasevent " + e.getAuthor().getId()).queue();
+        UDC.getTextChannelById(521775461987254273L).sendMessage(e.getAuthor().getName() + " just completed the UDC Christmas Event 2018! So far `" + peopleCompleted + "` have completed the christmas event").queue();
+
+
+
     }
 }

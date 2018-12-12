@@ -21,7 +21,7 @@ public class CodeResultsTester {
             int characterCode = (((int)(key.charAt(i))) + offset);
 
             if (characterCode > 122) {
-                characterCode -= 25;
+                characterCode -= 26;
             }
 
             newMessage += (char)characterCode;

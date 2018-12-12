@@ -72,6 +72,10 @@ a,h1,h2,h3,h4,h5,h6,p,b,label,i,td,tr {
   padding: 2px;
 }
 
+.green {
+  color: #66ff66;
+}
+
 /*
   Content theme
 */
@@ -150,5 +154,5 @@ pre code {
 }
 
 /*
-  key{santaclausiscomingtotown}
+  {santaclausiscomingtotown}
 */

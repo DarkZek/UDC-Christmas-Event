@@ -22,7 +22,7 @@ public class CodeRunner {
 
         try {
             //Command to start the docker container which runs the code
-            List<String> lines = Arrays.asList("#!/bin/bash", "docker run --stop-timeout 10 --rm -v  /home/darkzek/" + projectDirectory + "/:/mnt sixeyed/coreclr-hello-world /bin/bash -c 'cd /mnt/ && dnx run " + number + "\'");
+            List<String> lines = Arrays.asList("#!/bin/bash", "docker run --stop-timeout 10 --rm -v  /home/darkzek/" + projectDirectory + "/:/mnt sixeyed/coreclr-hello-world /bin/bash -c 'cd /mnt/ && timeout 20 dnx run " + number + "\'");
 
             //Script to run the code
             Path file = Paths.get("/home/darkzek/run.sh");
@@ -54,7 +54,7 @@ public class CodeRunner {
 
                 try {
                     while ((line = input.readLine()) != null)
-                        message += line;
+                        message += line + '\n';
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
